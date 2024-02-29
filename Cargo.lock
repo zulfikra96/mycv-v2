@@ -155,26 +155,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "actix-scaffolding"
-version = "0.1.0"
-dependencies = [
- "actix",
- "actix-cors",
- "actix-files",
- "actix-session",
- "actix-web",
- "actix-web-actors",
- "chrono",
- "diesel",
- "dotenv",
- "jsonwebtoken",
- "magic-crypt",
- "sailfish",
- "serde",
- "uuid",
-]
-
-[[package]]
 name = "actix-server"
 version = "2.3.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2250,4 +2230,24 @@ checksum = "9e16efa8a874a0481a574084d34cc26fdb3b99627480f785888deb6386506656"
 dependencies = [
  "cc",
  "pkg-config",
+]
+
+[[package]]
+name = "zulfikra-v4"
+version = "0.1.0"
+dependencies = [
+ "actix",
+ "actix-cors",
+ "actix-files",
+ "actix-session",
+ "actix-web",
+ "actix-web-actors",
+ "chrono",
+ "diesel",
+ "dotenv",
+ "jsonwebtoken",
+ "magic-crypt",
+ "sailfish",
+ "serde",
+ "uuid",
 ]
