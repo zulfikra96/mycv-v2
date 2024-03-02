@@ -9,7 +9,7 @@ use config::socket_server;
 use crate::config::database::establish_connection;
 use actix_cors::Cors;
 use actix_files as fs;
-use actix_web::{http, web, cookie::Key, App, HttpServer};
+use actix_web::{cookie::Key, http, middleware, web, App, HttpServer};
 use controllers::home;
 use diesel::{r2d2::{ConnectionManager, Pool}, PgConnection};
 use dotenv::dotenv;
@@ -33,6 +33,7 @@ async fn main() -> std::io::Result<()> {
         App::new()
             .service(fs::Files::new("/public", "public").show_files_listing())
             .wrap(cors)
+            .wrap(middleware::Compress::default())
             .wrap(
                 SessionMiddleware::builder(CookieSessionStore::default(), Key::from(&[0; 64]))
                     .cookie_secure(false)
