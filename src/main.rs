@@ -20,8 +20,6 @@ use lightningcss::{
 
 
 
-
-
 pub type DBPool = Pool<ConnectionManager<PgConnection>>;
 
 #[actix_web::main]
