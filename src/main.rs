@@ -28,13 +28,16 @@ async fn main() -> std::io::Result<()> {
     let port = std::env::var("PORT")
         .expect("Port is not defined").parse::<u16>().unwrap();
     let server = socket_server::ChatServer::default().start();
-    let path: &Path = Path::new("public/css/style.css");
+    // let path: &Path = Path::new("public/css/style.css");
     // let display = path.display();
 
-    // let fs = FileProvider::new();
+    let fs = FileProvider::new();
     // let mut style = file_system::File::open(&path).unwrap();
     // let mut s = String::new();
     // style.read_to_string(&mut s).unwrap();
+    let mut bundler = Bundler::new(&fs, None, ParserOptions::default());
+    let stylesheet = bundler.bundle(Path::new("public/css/style.css")).unwrap();
+    // println!("result {:?}", stylesheet);
     // let mut stylesheet = StyleSheet::parse(&s, ParserOptions::default()).unwrap();
     // stylesheet.minify(MinifyOptions::default()).unwrap();
     // let res = stylesheet.to_css(PrinterOptions {
